@@ -1,4 +1,5 @@
-FROM openjdk:17-alpine
-WORKDIR /opt
-COPY target/*.jar /opt/app.jar
-ENTRYPOINT exec java $JAVA_OPTS -jar /opt/app.jar
+FROM openjdk:17-jdk-alpine
+
+COPY ./target/* .jar springbootdemok8s.jar
+
+ENTRYPOINT ["java" ,"-jar","/springbootdemok8s.jar"]
